@@ -7,6 +7,27 @@ spl_autoload_register(function($class){
     $url = $root . $ds . str_replace('\\', $ds, $class) . '.php';
     require_once($url);
 });
+
+$quadrate = new Quadrate(5);
+echo $quadrate->getPerimeter();
+echo '<br />';
+echo $quadrate->getSquare();
+echo '<br />';
+echo '<br />';
+
+$rectangle = new Rectangle(4, 7);
+echo $rectangle->getPerimeter();
+echo '<br />';
+echo $rectangle->getSquare();
+echo '<br />';
+echo '<br />';
+
+$disk = new Dick(5);
+echo $disk->getPerimeter();
+echo '<br />';
+echo $disk->getSquare();
+echo '<br />';
+echo '<br />';
 ?>
 
 <!doctype html>
