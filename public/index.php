@@ -1,19 +1,14 @@
 <?php
 
-session_start();
+spl_autoload_register(function($class){
+    $root = $_SERVER['DOCUMENT_ROOT'];
+    $ds = DIRECTORY_SEPARATOR;
 
-use Programmer\Programmer;
+    $url = $root . $ds . str_replace('\\', $ds, $class) . '.php';
+    require_once($url);
+});
 
-$employee = new Programmer();
-
-$employee->setAge(25);
-$employee->setName('John');
-$employee->setSalary(1500);
-$employee->setLangs(['php', 'js', 'python'])->getLangs();
-echo $employee->getSalary();
-$employee->addOneYear();
-echo $employee->getAge();
-$employee->checkAge();
+echo (new Date('26.04.1993'));
 ?>
 
 <!doctype html>
