@@ -1,6 +1,6 @@
 <?php
 
-spl_autoload_register(function($class){
+spl_autoload_register(static function($class){
     $root = $_SERVER['DOCUMENT_ROOT'];
     $ds = DIRECTORY_SEPARATOR;
 

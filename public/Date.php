@@ -2,11 +2,11 @@
 
 class Date
 {
-    private $data;
+    public $data;
 
     public function __construct($data = null)
     {
-        if ($data !== null){
+        if ($data !== null) {
             $this->data = date_create($data);
         } else {
             $this->data = date('Y.m.d');
@@ -47,21 +47,22 @@ class Date
         return date_format($this->data, 'm');
     }
 
-    public function getYear(): string
+    public function getYear()
     {
         $str = 'Y';
         return $this->getDate($str);
     }
 
-    public function getWeekDay():string
+    public function getWeekDay(): string
     {
         $str = 'l';
         return $this->getDate($str);
     }
 
-    private function addDate($str): void
+    private function addDate($str)
     {
         date_modify($this->data, $str);
+        return date_format($this->data, 'Y-m-d');
     }
 
     public function addDay($value): void
@@ -82,14 +83,20 @@ class Date
         $this->addDate($str);
     }
 
-    public function addYear($value): void
+    public function addYear($value)
     {
         $str = $value . ' year';
         $this->addDate($str);
+        return $this->data;
     }
 
     public function format($format)
     {
         return date_format($this->data, $format);
+    }
+
+    public function __toString():string
+    {
+        return date_format($this->data, 'Y.m.d');
     }
 }
