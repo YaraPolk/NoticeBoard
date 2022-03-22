@@ -18,6 +18,11 @@ class Date
         return date_format($this->data, $str);
     }
 
+    public function getData()
+    {
+        return $this->data;
+    }
+
     public function getDay(): string
     {
         $str = 'd';

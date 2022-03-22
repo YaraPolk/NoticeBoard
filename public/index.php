@@ -8,7 +8,12 @@ spl_autoload_register(static function($class){
     require_once($url);
 });
 
-echo (new Date('26.04.1993'));
+$file = new Files('/text/text.txt');
+echo $file->getName();
+echo '<br />';
+$file->appendText('New text for file');
+echo $file->getText();
+$file->copy('test.txt');
 ?>
 
 <!doctype html>
